@@ -180,6 +180,9 @@ class GroupedListView<T, E> extends StatefulWidget {
   /// property.
   final int? semanticChildCount;
 
+  /// ADDED TO CHECK THE OFFSET OF TITLE
+  /// Offsets the title change!
+  final double titleChangeOffset;
   /// If non-null, forces the children to have the given extent in the scroll
   /// direction.
   ///
@@ -391,7 +394,7 @@ class _GroupedListViewState<T, E> extends State<GroupedListView<T, E>> {
         var itemBox = key.currentContext!.findRenderObject() as RenderBox;
         // position of the item's top border inside the list view
         var y = itemBox.localToGlobal(Offset(0, -listPos - headerHeight)).dy;
-        if (y <= headerHeight && y > max) {
+        if (y <= headerHeight - widget.titleChangeOffset && y > max) {
           topItemKey = entry.key;
           max = y;
         }
