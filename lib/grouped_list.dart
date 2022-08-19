@@ -204,6 +204,7 @@ class GroupedListView<T, E> extends StatefulWidget {
     Key? key,
     required this.elements,
     required this.groupBy,
+    this.titleChangeOffset = 0,
     this.groupComparator,
     this.groupSeparatorBuilder,
     this.groupHeaderBuilder,
